@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devdash"
+version = "0.1.0"
+description = "Beautiful developer dashboard for your terminal — clock, weather, GitHub, system stats"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["terminal", "dashboard", "tui", "developer", "weather", "github", "cli", "rich"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Terminals",
+    "Environment :: Console",
+]
+dependencies = [
+    "rich>=13.0",
+    "click>=8.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-cov"]
+system = ["psutil>=5.9"]
+
+[project.scripts]
+devdash = "devdash.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["devdash*"]
